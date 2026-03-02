@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peakminds Schools - Premium Nursery & Primary Education</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="peakmindschools-favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="peakmindschools-favicon.png">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="peakmindschools-favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #fefefe;
+        }
+
+        :root {
+            --navy: #0B1E33;
+            --yellow: #FDBB14;
+            --light-navy: #1a3349;
+            --light-gray: #f8f9fa;
+            --dark-gray: #555;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--yellow);
+            color: var(--navy);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(253, 187, 20, 0.2);
+            display: inline-block;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: #e5a80b;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(253, 187, 20, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-scrolled {
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.98);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--yellow);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--yellow);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--yellow);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .apply-btn {
+            background: var(--navy);
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 30px;
+        }
+
+        .apply-btn:hover {
+            background: var(--yellow);
+            color: var(--navy) !important;
+        }
+
+        .apply-btn::after {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--navy);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #0B1E33 0%, #1a3349 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0 L100 100 L0 100 Z" fill="rgba(253,187,20,0.02)"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            color: white;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 5%;
+            bottom: 0;
+            max-width: 45%;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            color: var(--yellow);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--navy);
+            font-weight: 800;
+        }
+
+        .section-title span {
+            color: var(--yellow);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--yellow);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            color: #777;
+        }
+
+        .program-tags {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .program-tag {
+            background: #f0f2f5;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .program-tag.yellow {
+            background: var(--yellow);
+            color: var(--navy);
+        }
+
+        /* Admissions Section */
+        .admissions {
+            background: var(--light-gray);
+        }
+
+        .admissions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .admission-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .admission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.1);
+        }
+
+        .admission-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--navy);
+            font-size: 2rem;
+        }
+
+        .admission-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .admission-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            margin-top: 60px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .timeline h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--navy);
+        }
+
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .timeline-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 1;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background: white;
+            padding: 0 15px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 15px;
+            border: 3px solid white;
+        }
+
+        .step.active .step-number {
+            background: var(--yellow);
+            color: var(--navy);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 30, 51, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px solid white;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .lightbox-prev, .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+
+        /* Staff Section */
+        .staff-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0 40px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .staff-card {
+            min-width: 280px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            scroll-snap-align: start;
+        }
+
+        .staff-image {
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .staff-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .staff-card:hover .staff-image img {
+            transform: scale(1.05);
+        }
+
+        .staff-info {
+            padding: 20px;
+        }
+
+        .staff-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--navy);
+        }
+
+        .staff-info p {
+            color: var(--yellow);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--navy);
+            color: white;
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--yellow);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h5 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--yellow);
+            transform: scale(1.2);
+        }
+
+        /* Events Section */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .event-card {
+            display: flex;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            transition: all 0.3s;
+        }
+
+        .event-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .event-date {
+            background: var(--yellow);
+            color: var(--navy);
+            min-width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .event-date .day {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .event-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+
+        .event-details p {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .event-details i {
+            color: var(--yellow);
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background: var(--navy);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--yellow);
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .map {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            margin-top: 30px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--yellow);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--yellow);
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .footer-links h4,
+        .footer-newsletter h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--yellow);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-form button {
+            background: var(--yellow);
+            color: var(--navy);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #e5a80b;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--yellow);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: left 0.3s;
+                z-index: 999;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                text-align: center;
+            }
+            .hero-content {
+                margin: 0 auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-image {
+                display: none;
+            }
+            .about-grid,
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .admissions-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .timeline-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .timeline-steps::before {
+                display: none;
+            }
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <!-- Placeholder logo - replace with actual logo -->
+                <img src="peakmindschools.png" alt="Peakminds Logo">
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#apply" class="apply-btn">Apply Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h1>We Raise <span>Balanced</span> Children</h1>
+            <p>For us at Peakminds Schools, our focus is to catch them young, lay a solid foundation that would guarantee a better future. Playgroup | Nursery | Primary</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn-primary">Discover More</a>
+                <a href="#contact" class="btn-outline" style="background: white; color: var(--navy);">Schedule a Tour</a>
+            </div>
+            <div class="program-tags" style="margin-top: 40px;">
+                <span class="program-tag yellow">Playgroup</span>
+                <span class="program-tag yellow">Nursery</span>
+                <span class="program-tag yellow">Primary</span>
+                <span class="program-tag">EYFS</span>
+                <span class="program-tag">Key Stage 1 & 2</span>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="493728643_1212882104174727_2350020682839110391_n.jpg" alt="Happy Children">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">About Us</p>
+                <h2 class="section-title">Nurturing <span>Young Minds</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="558964597_1355182316611371_3013078059412536866_n.jpg" alt="Peakminds Classroom">
+                </div>
+                <div class="about-content">
+                    <h2>Catching Them Young, Building a Solid Foundation</h2>
+                    <p>At Peakminds Schools, we are dedicated to raising balanced children who are well-rounded in all areas of life. We practice the British curriculum - EYFS and Key Stage, ensuring your child receives an internationally recognized education.</p>
+                    <p>Our vision is to create an environment where children love to learn, explore, and grow. With small class sizes, dedicated teachers, and a vibrant community, we prepare your child for a bright future.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>11+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Qualified Staff</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>200+</h3>
+                            <p>Happy Students</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="admissions">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Admissions</p>
+                <h2 class="section-title">Join the <span>Peakminds</span> Family</h2>
+            </div>
+            <div class="admissions-grid">
+                <div class="admission-card">
+                    <div class="admission-icon"><i class="fas fa-child"></i></div>
+                    <h3>Playgroup</h3>
+                    <p>Ages 1-2 years. Early socialisation, sensory play, and foundational care in a nurturing environment.</p>
+                </div>
+                <div class="admission-card">
+                    <div class="admission-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3>Nursery</h3>
+                    <p>Ages 3-4 years. EYFS curriculum focusing on communication, physical development, and creative expression.</p>
+                </div>
+                <div class="admission-card">
+                    <div class="admission-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Primary</h3>
+                    <p>Ages 5-11 years. Key Stage 1 & 2 with a strong academic foundation, critical thinking, and character development.</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <h3>Admission Process</h3>
+                <div class="timeline-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <p>Inquiry</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>School Tour</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Assessment</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Offer & Enrollment</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#apply" class="btn-primary" style="background: var(--navy); color: white;">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Gallery</p>
+                <h2 class="section-title">Moments at <span>Peakminds</span></h2>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item">
+                    <img src="561802368_18056623376548717_3145805453513054111_n.jpeg" alt="Gallery Image 1">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="561317598_18056623439548717_6240202876706468351_n.jpeg" alt="Gallery Image 2">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="561243677_18056623394548717_2622466164376138721_n.jpeg" alt="Gallery Image 3">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="540706294_18051995519548717_6149713210043868872_n.jpeg" alt="Gallery Image 4">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="531921596_18050218361548717_3089117834358562604_n.jpeg" alt="Gallery Image 5">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="549214939_18053672069548717_9128526030350408182_n.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="561243677_18056623394548717_2622466164376138721_n.jpeg" alt="Gallery Image 7">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="541223564_18051995510548717_3292298826837012577_n.jpeg" alt="Gallery Image 8">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section (hidden section, included for completeness) -->
+    <section style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Our Team</p>
+                <h2 class="section-title">Dedicated <span>Educators</span></h2>
+            </div>
+            <div class="staff-slider" id="staffSlider">
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <img src="https://via.placeholder.com/300x300/0B1E33/FDBB14?text=Teacher" alt="Staff">
+                    </div>
+                    <div class="staff-info">
+                        <h4>Mrs. Adebayo</h4>
+                        <p>Head of Early Years</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <img src="https://via.placeholder.com/300x300/FDBB14/0B1E33?text=Teacher" alt="Staff">
+                    </div>
+                    <div class="staff-info">
+                        <h4>Mr. Okonkwo</h4>
+                        <p>Primary Coordinator</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <img src="https://via.placeholder.com/300x300/0B1E33/FDBB14?text=Teacher" alt="Staff">
+                    </div>
+                    <div class="staff-info">
+                        <h4>Ms. Eze</h4>
+                        <p>EYFS Specialist</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <img src="https://via.placeholder.com/300x300/FDBB14/0B1E33?text=Teacher" alt="Staff">
+                    </div>
+                    <div class="staff-info">
+                        <h4>Mr. Johnson</h4>
+                        <p>Physical Education</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Testimonials</p>
+                <h2 class="section-title">What Parents <span>Say</span></h2>
+            </div>
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="testimonial-item active">
+                    <p class="testimonial-text">"Peakminds has been a second home for my daughter. The teachers are caring and the British curriculum gives me confidence in her academic future."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://via.placeholder.com/60x60/0B1E33/FDBB14?text=Parent" alt="Parent">
+                        </div>
+                        <div class="author-info">
+                            <h5>Mrs. Oluwaseun</h5>
+                            <p>Parent of Nursery 2 pupil</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"My son has grown so confident since joining Primary 1. The school's focus on balanced development is truly commendable."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://via.placeholder.com/60x60/FDBB14/0B1E33?text=Parent" alt="Parent">
+                        </div>
+                        <div class="author-info">
+                            <h5>Mr. Chidi</h5>
+                            <p>Parent of Primary 2 pupil</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"The EYFS programme is excellent. My child loves going to school every day, and the progress we've seen is amazing."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://via.placeholder.com/60x60/0B1E33/FDBB14?text=Parent" alt="Parent">
+                        </div>
+                        <div class="author-info">
+                            <h5>Dr. Adekunle</h5>
+                            <p>Parent of Playgroup pupil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Events</p>
+                <h2 class="section-title">Upcoming <span>Activities</span></h2>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>Open House & School Tour</h4>
+                        <p><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Canaan Estate Campus</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">22</span>
+                        <span class="month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>Sports Day</h4>
+                        <p><i class="fas fa-clock"></i> 9:00 AM - 2:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> School Field</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">05</span>
+                        <span class="month">JUL</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>Parent-Teacher Conference</h4>
+                        <p><i class="fas fa-clock"></i> 3:00 PM - 6:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> School Hall</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">12</span>
+                        <span class="month">JUL</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>End of Term Assembly</h4>
+                        <p><i class="fas fa-clock"></i> 10:00 AM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> School Auditorium</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Contact Us</p>
+                <h2 class="section-title">Get in <span>Touch</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>We'd love to hear from you</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h4>Visit Us</h4>
+                            <p>No 1 Jesus Avenue, Canaan Estate<br>Sangotedo, Ajah, Lekki<br>Lagos, Nigeria 101245</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-text">
+                            <h4>Call Us</h4>
+                            <p>0903 609 0614</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h4>Email Us</h4>
+                            <p>info@peakmindsschools.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                        <div class="contact-text">
+                            <h4>Website</h4>
+                            <p>www.peakmindsschools.com</p>
+                        </div>
+                    </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.503992148176!2d3.875123314770221!3d6.454555995321748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf4d0a9b3e8b9%3A0x8b3e9e7c1f3f9c0!2sCanaan%20Estate%2C%20Sangotedo%2C%20Lagos!5e0!3m2!1sen!2sng!4v1620000000000!5m2!1sen!2sng" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <h3 style="margin-bottom: 30px; color: var(--navy);">Send a Message</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">Peakminds<span>Schools</span></div>
+                    <p>Raising balanced children through the British curriculum. Playgroup, Nursery & Primary.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/peakmindsschools/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/peakmindsschools/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://ng.linkedin.com/company/peakminds-schools"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#admissions">Admissions</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#">Playgroup</a></li>
+                        <li><a href="#">Nursery</a></li>
+                        <li><a href="#">Primary</a></li>
+                        <li><a href="#">EYFS</a></li>
+                        <li><a href="#">Key Stage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on events and news</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Peakminds Schools. All rights reserved. Designed for demo purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <span class="lightbox-prev" id="lightboxPrev">&#10094;</span>
+        <img src="" alt="Lightbox Image" id="lightboxImg">
+        <span class="lightbox-next" id="lightboxNext">&#10095;</span>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Testimonial Slider
+        const testimonialItems = document.querySelectorAll('.testimonial-item');
+        const dots = document.querySelectorAll('.dot');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonialItems.forEach(item => item.style.display = 'none');
+            dots.forEach(dot => dot.classList.remove('active'));
+            testimonialItems[index].style.display = 'block';
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        if (testimonialItems.length > 0) {
+            showTestimonial(0);
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => showTestimonial(idx));
+            });
+        }
+
+        // Auto slide testimonials
+        setInterval(() => {
+            if (testimonialItems.length > 0) {
+                let next = (currentTestimonial + 1) % testimonialItems.length;
+                showTestimonial(next);
+            }
+        }, 5000);
+
+        // Gallery Lightbox
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        let currentImageIndex = 0;
+        const imageSources = [];
+
+        galleryItems.forEach((item, index) => {
+            const img = item.querySelector('img');
+            imageSources.push(img.src);
+            item.addEventListener('click', () => {
+                currentImageIndex = index;
+                lightboxImg.src = imageSources[currentImageIndex];
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        lightboxPrev.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length;
+            lightboxImg.src = imageSources[currentImageIndex];
+        });
+
+        lightboxNext.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+            lightboxImg.src = imageSources[currentImageIndex];
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+            if (e.key === 'ArrowLeft') lightboxPrev.click();
+            if (e.key === 'ArrowRight') lightboxNext.click();
+        });
+
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for reaching out! (Demo - no message sent)');
+                contactForm.reset();
+            });
+        }
+
+        // Staff slider smooth scroll
+        const staffSlider = document.getElementById('staffSlider');
+        if (staffSlider) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            staffSlider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - staffSlider.offsetLeft;
+                scrollLeft = staffSlider.scrollLeft;
+            });
+
+            staffSlider.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+
+            staffSlider.addEventListener('mouseup', () => {
+                isDown = false;
+            });
+
+            staffSlider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - staffSlider.offsetLeft;
+                const walk = (x - startX) * 2;
+                staffSlider.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
